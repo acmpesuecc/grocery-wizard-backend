@@ -6,5 +6,6 @@
 3. Poetry - For python package management
 
 ### Commands
-- `poetry add ___`
+- `poetry add <package name>`
 - `poetry shell`
+- `uvicorn main:app --reload`

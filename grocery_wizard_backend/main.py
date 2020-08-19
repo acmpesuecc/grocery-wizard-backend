@@ -9,6 +9,11 @@ class User(BaseModel):
     email: Optional[str] = None
     phone: Optional[str] = None
     age: Optional[int] = None
+    address: Optional[int] = None
+    city: Optional[int] = None
+    state: Optional[int] = None
+    pincode: Optional[int] = None
+    country: Optional[int] = None
 
 
 app = FastAPI()
@@ -18,6 +23,11 @@ app = FastAPI()
 async def root():
     return {"message": "Hello World"}
 
-@app.get("/users/{username}", response_model=User)
+@app.get("/users/{username}")
 async def read_user(username: str):
     return {"id":username}
+
+@app.post("/users")
+async def create_user(user:User):
+    user_dict = user.dict()
+    return user
