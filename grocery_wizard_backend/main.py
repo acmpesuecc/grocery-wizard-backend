@@ -15,6 +15,13 @@ class User(BaseModel):
     pincode: Optional[int] = None
     country: Optional[int] = None
 
+class Item(BaseModel):
+    name: str
+    quantity: float
+    unit: Optional[int] = None
+    unit_price: Optional[float] = None
+    total_price: Optional[float] = None
+
 
 app = FastAPI()
 
