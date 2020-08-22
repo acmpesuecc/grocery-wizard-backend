@@ -23,6 +23,11 @@ class Item(BaseModel):
     total_price: Optional[float] = None
 
 
+from firebase_admin import auth
+default_app = firebase_admin.initialize_app(cred)
+print(default_app.name)
+
+
 app = FastAPI()
 
 
