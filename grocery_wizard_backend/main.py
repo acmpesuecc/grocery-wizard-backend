@@ -1,6 +1,8 @@
 from fastapi import FastAPI, Header
 from pydantic import BaseModel
 from typing import Optional
+import firebase_admin
+from firebase_admin import credentials, auth
 
 
 class User(BaseModel):
@@ -16,17 +18,18 @@ class User(BaseModel):
     country: Optional[int] = None
 
 class Item(BaseModel):
-    name: str
+    item_name: str
     quantity: float
+    category: Optional[str] = None
     unit: Optional[int] = None
     unit_price: Optional[float] = None
     total_price: Optional[float] = None
 
 
-from firebase_admin import auth
-default_app = firebase_admin.initialize_app(cred)
-print(default_app.name)
 
+cred = credentials.Certificate("./admin/grocery-wizard-firebase-adminsdk-95r53-9c32d80748.json")
+firebase_admin.initialize_app(cred)
+print(firebase_admin.auth.list_users())
 
 app = FastAPI()
 

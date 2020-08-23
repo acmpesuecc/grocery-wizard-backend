@@ -9,3 +9,4 @@
 - `poetry add <package name>`
 - `poetry shell`
 - `uvicorn main:app --reload`
+- `poetry run <normal execution command>`
