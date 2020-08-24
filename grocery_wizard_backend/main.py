@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from typing import Optional
 import firebase_admin
 from firebase_admin import credentials, auth
+import datetime
 
 
 class User(BaseModel):
@@ -25,6 +26,11 @@ class Item(BaseModel):
     unit_price: Optional[float] = None
     total_price: Optional[float] = None
 
+class Reciept(BaseModel):
+    store_name: Optional[str] = None
+    date: datetime.date
+    item_count: int
+    total_amount: float
 
 
 cred = credentials.Certificate("./admin/grocery-wizard-firebase-adminsdk-95r53-9c32d80748.json")
