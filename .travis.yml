@@ -1,6 +1,8 @@
 language: python
 python:
 - 3.7
+services:
+- docker
 before_install:
 - openssl aes-256-cbc -K $encrypted_3ba8e56c7745_key -iv $encrypted_3ba8e56c7745_iv
   -in grocery-wizard-firebase-adminsdk-95r53-9c32d80748.json.enc -out grocery-wizard-firebase-adminsdk-95r53-9c32d80748.json
@@ -10,3 +12,11 @@ install:
 - poetry install
 script:
 - poetry run python -m pytest -v
+- docker build -t grocerywizard.azurecr.io/gw-server:latest .
+deploy:
+  provider: script
+  script:
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin grocerywizard.azurecr.io
+    - docker push grocerywizard.azurecr.io/gw-server:latest
+  on:
+    branch: master
