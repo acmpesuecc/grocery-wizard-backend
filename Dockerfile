@@ -12,3 +12,4 @@ COPY ./pyproject.toml ./poetry.lock* /app/
 RUN poetry install --no-root --no-dev
 
 COPY ./app /app
+COPY ./grocery-wizard-firebase-adminsdk-95r53-9c32d80748.json /
