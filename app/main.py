@@ -5,7 +5,7 @@ from models.user import User
 from models.items import Item,Reciept
 
 
-cred = credentials.Certificate("./admin/grocery-wizard-firebase-adminsdk-95r53-9c32d80748.json")
+cred = credentials.Certificate("../grocery-wizard-firebase-adminsdk-95r53-9c32d80748.json")
 firebase_admin.initialize_app(cred)
 print(firebase_admin.auth.list_users())
 
