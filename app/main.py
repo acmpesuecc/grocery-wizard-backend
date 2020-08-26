@@ -14,7 +14,7 @@ app = FastAPI()
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World! What is up? Today is todayy"}
+    return {"message": "Hello World! If you are seeing this message, the server probably works"}
 
 @app.get("/users/{username}")
 async def read_user(username: str):
