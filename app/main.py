@@ -11,8 +11,6 @@ app.include_router(
     responses={404: {"description": "Not found"}},
 )
 
-clientp= 5
-
 
 @app.get("/")
 async def root():
