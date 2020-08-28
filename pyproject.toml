@@ -10,6 +10,7 @@ fastapi = {extras = ["all"], version = "^0.60.1"}
 pydantic = "^1.6.1"
 typing = "^3.7.4"
 firebase-admin = "^4.3.0"
+motor = "^2.2.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

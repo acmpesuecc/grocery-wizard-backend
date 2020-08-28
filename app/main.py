@@ -1,10 +1,5 @@
 from fastapi import FastAPI, Header, HTTPException
 
-from models.user import User
-from models.items import Item,Reciept
-
-from auth import verify
-
 from routers import v1
 
 app = FastAPI()
@@ -15,6 +10,8 @@ app.include_router(
     prefix="/v1",
     responses={404: {"description": "Not found"}},
 )
+
+clientp= 5
 
 
 @app.get("/")

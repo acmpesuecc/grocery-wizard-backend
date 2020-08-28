@@ -6,6 +6,8 @@ import datetime
 class Item(BaseModel):
     item_name: str
     quantity: float
+    add_date: datetime.datetime
+    remove_date: Optional[datetime.datetime] = None
     category: Optional[str] = None
     unit: Optional[int] = None
     unit_price: Optional[float] = None
