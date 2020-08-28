@@ -16,6 +16,7 @@ app.include_router(
 async def root():
     return {"message": "Hello World! If you are seeing this message, the server probably works"}
 
+
 @app.get("/version")
 async def current_version():
     return "v1"
