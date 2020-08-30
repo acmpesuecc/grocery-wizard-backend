@@ -13,6 +13,12 @@ class Item(BaseModel):
     unit_price: Optional[float] = None
     total_price: Optional[float] = None
 
+
+class User_Item(BaseModel):
+    uid: str
+    Item
+
+
 class Reciept(BaseModel):
     store_name: Optional[str] = None
     date: datetime.date

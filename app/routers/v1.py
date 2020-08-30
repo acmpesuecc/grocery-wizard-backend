@@ -50,3 +50,18 @@ async def add_item(item:Item, id_token: str = Header(None)):
     item_dict['uid'] = uid
     result = await gwdb.items.insert_one(item_dict)
     return {"inserted_id":str(result.inserted_id)}
+
+
+@router.get("/items")
+async def get_items(id_token: str = Header(None)):
+    if id_token:
+        uid = verify(id_token)
+    else:
+        raise HTTPException(status_code=403, detail="Forbidden. Provide ID Token.")
+
+    cursor = gwdb.items.find({"uid":uid})
+    result = list()
+    for document in await cursor.to_list(length=100):
+        document['_id'] = str(document['_id'])
+        result.append(document)
+    return {"items":result}
