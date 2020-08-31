@@ -15,8 +15,15 @@ class Item(BaseModel):
 
 
 class User_Item(BaseModel):
-    uid: str
-    Item
+    uid: Optional[str] = "0"
+    item_name: str
+    quantity: float
+    add_date: datetime.datetime
+    remove_date: Optional[datetime.datetime] = None
+    category: Optional[str] = None
+    unit: Optional[int] = None
+    unit_price: Optional[float] = None
+    total_price: Optional[float] = None
 
 
 class Reciept(BaseModel):
