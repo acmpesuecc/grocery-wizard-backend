@@ -40,7 +40,7 @@ async def create_user(user:User, id_token: str = Header(None)):
 
 
 @router.post("/items")
-async def add_item(item:User_Item, id_token: str = Header(None)):
+async def add_item(item:Item, id_token: str = Header(None)):
     if id_token:
         uid = verify(id_token)
     else:
