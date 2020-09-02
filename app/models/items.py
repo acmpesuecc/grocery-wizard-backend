@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
 import datetime
 
 
@@ -31,3 +31,4 @@ class Reciept(BaseModel):
     date: datetime.date
     item_count: int
     total_amount: float
+    items: List[Item]

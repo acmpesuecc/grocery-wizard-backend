@@ -65,3 +65,16 @@ async def get_items(id_token: str = Header(None)):
         document['_id'] = str(document['_id'])
         result.append(document)
     return {"items":result}
+
+
+@router.post("/reciepts")
+async def add_item(reciept:Reciept, id_token: str = Header(None)):
+    if id_token:
+        uid = verify(id_token)
+    else:
+        raise HTTPException(status_code=403, detail="Forbidden. Provide ID Token.")
+
+    reciept_dict = reciept.dict()
+    reciept_dict['uid'] = uid
+    result = await gwdb.reciepts.insert_one(reciept_dict)
+    return {"inserted_id":str(result.inserted_id)}
