@@ -67,6 +67,12 @@ async def get_items(id_token: str = Header(None)):
     return {"items":result}
 
 
+@router.put("/items/<item_id>")
+async def mark_item_completed(id_token: str = Header(None)):
+    ## TODO
+    return(item_id)
+
+
 @router.post("/reciepts")
 async def add_item(reciept:Reciept, id_token: str = Header(None)):
     if id_token:
