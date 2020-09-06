@@ -32,3 +32,9 @@ class Reciept(BaseModel):
     item_count: int
     total_amount: float
     items: List[Item]
+
+
+class List(BaseModel):
+    list_start: datetime.datetime
+    list_close: Optional[datetime.datetime] = None
+    items: List[Item]
