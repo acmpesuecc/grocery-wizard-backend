@@ -104,3 +104,8 @@ async def get_reciepts(id_token: str = Header(None)):
         document['_id'] = str(document['_id'])
         result.append(document)
     return {"items":result}
+
+@router.get("/metrics")
+async def get_metrics(id_token: str = Header(None)):
+    ## TODO
+    return(id_token)
